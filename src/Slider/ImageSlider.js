@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { SliderData } from "./SliderData";
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
+//import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
-  const ImageSlider = ({ slides }) => {
-  const screen = useFullScreenHandle();
+const ImageSlider = ({ slides }) => {
+  //const screen = useFullScreenHandle();
+
   const [current, setCurrent] = useState(0);
+  const imageElem = useRef(null);
   const length = slides.length;
 
   const nextSlide = () => {
@@ -17,13 +19,10 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
     return null;
   }
 
-  function getFullscreenElement() {
-    return document.fullscreenElement;
-  }
-
   return (
-      
     <section className="slider">
+     
+
       <button className="left-arrow" onClick={nextSlide}>
         {" "}
         Предыдущий{" "}
@@ -40,7 +39,17 @@ import { FullScreen, useFullScreenHandle } from "react-full-screen";
             key={index}
           >
             {index === current && (
-              <img src={slide.image} alt="zp image" className="image" />
+              <img
+                src={slide.image}
+                alt="zp image"
+                className="image"
+                ref={imageElem}
+                onClick={(
+                  
+                )=>{
+                  imageElem.current.requestFullscreen();
+                   }}
+              />
             )}
           </div>
         );
