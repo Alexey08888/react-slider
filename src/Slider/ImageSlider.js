@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { SliderData } from "./SliderData";
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
-const ImageSlider = ({ slides }) => {
+  const ImageSlider = ({ slides }) => {
+  const screen = useFullScreenHandle();
   const [current, setCurrent] = useState(0);
   const length = slides.length;
 
@@ -16,23 +17,33 @@ const ImageSlider = ({ slides }) => {
     return null;
   }
 
-  function getFullscreenElement(){
-      return document.fullscreenElement
+  function getFullscreenElement() {
+    return document.fullscreenElement;
   }
+
   return (
+      
     <section className="slider">
-      <FaArrowAltCircleLeft className="left-arrow" onClick={nextSlide} />
-      <FaArrowAltCircleRight className="right-arrow" onClick={prevSlide} />
+      <button className="left-arrow" onClick={nextSlide}>
+        {" "}
+        Предыдущий{" "}
+      </button>
+
+      <button className="right-arrow" onClick={prevSlide}>
+        {" "}
+        Следующий
+      </button>
       {SliderData.map((slide, index) => {
         return (
-        <div
-          className={index === current ? "slide active" : "slide"}
-          key={index} onClick={getFullscreenElement}>
-
-              {index === current && ( <img src={slide.image} alt="zp image" className="image" />)}
-         
-        </div>
-        )
+          <div
+            className={index === current ? "slide active" : "slide"}
+            key={index}
+          >
+            {index === current && (
+              <img src={slide.image} alt="zp image" className="image" />
+            )}
+          </div>
+        );
       })}
     </section>
   );

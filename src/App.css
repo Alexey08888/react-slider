@@ -16,7 +16,7 @@
   position: absolute;
   top:50%;
   right:32px;
-  font-size: 3rem;
+  font-size: 0.8rem;
   color: black;
   z-index: 10;
   cursor: pointer;
@@ -28,7 +28,7 @@
   position: absolute;
   top:50%;
   left:32px;
-  font-size: 3rem;
+  font-size: 0.8rem;
   color: black;
   z-index: 10;
   cursor: pointer;
