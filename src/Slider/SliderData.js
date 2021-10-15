@@ -22,6 +22,6 @@ export const SliderData = [
   },
   {
     image:
-      "http://zanoza-news.com/wp-content/uploads/2018/02/0c227e01e264a8cd6ab725eed9b208c9.jpg",
+   ' https://akzent.zp.ua/wp-content/uploads/2019/08/46440242_1400781246725614_5302073303697981440_n-768x512.jpg',
   },
 ];
