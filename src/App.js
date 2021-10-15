@@ -1,7 +1,8 @@
 import './App.css';
+import ImageSlider from './Slider/ImageSlider';
 
 function App() {
-  return <div classname='App'> slider </div>  
+  return <ImageSlider/>
 }
 
 export default App;
